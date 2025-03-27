@@ -1,7 +1,8 @@
-
+"use client"
 import { Suspense } from 'react'
 import './App.css'
 import Countries from './component/countryes/Countries'
+import { ErrorBoundary } from 'react-error-boundary'
 
 const countresPromise = fetch('https://restcountries.com/v3.1/all')
    .then(res => res.json())
@@ -13,9 +14,11 @@ function App() {
       
       <h1>React World On the GO......</h1>
 
-    <Suspense fallback={<h2>data loding.......</h2>}>
-      <Countries countresPromise={countresPromise}/>
-    </Suspense>
+     <ErrorBoundary fallback={<h2>data fetching is error..........</h2>}>
+        <Suspense fallback={<h2>data loading.......</h2>}>
+          <Countries countresPromise={countresPromise}/>
+        </Suspense>
+     </ErrorBoundary>
       
     </>
   )

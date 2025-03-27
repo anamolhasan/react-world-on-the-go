@@ -4,14 +4,22 @@ import './Countrys.css'
 
 const Countries = ({countresPromise}) => {
 
+  
+  const countries = use(countresPromise)
+  // console.log(countries)
   const [visitedCountres, setVisitedCountres]=useState([])
-
-    const countries = use(countresPromise)
-    // console.log(countries)
+  const [filteredCountres, setFilteredCountres]=useState(visitedCountres)
 
     const handleVisitedCountres = (country)=>{
            const newVisitedCountrys=[...visitedCountres, country]
            setVisitedCountres(newVisitedCountrys)
+    }
+    const onRemoveCountry = (name) => {
+      // console.log(name)
+      // console.log(countries)
+      const filtered = filteredCountres.filter((country)=> country.name.common !==name)
+      setFilteredCountres(filtered)
+    
     }
   return (
     <div>
@@ -22,7 +30,8 @@ const Countries = ({countresPromise}) => {
             countries.map(country => <Country 
               key={country.cca3} 
               handleVisitedCountres={handleVisitedCountres}
-              country={country}></Country>)
+              onRemoveCountry={onRemoveCountry}
+              country={ country}></Country>)
         }
     </div>
     </div>

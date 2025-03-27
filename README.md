@@ -10,3 +10,11 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+# Project 1 - CountryApp Project
+## step 1: basic structure setup
+## step 2: fetch data 
+## step 3: display data
+## step 4: remove country functionality
+## step 5: search country functionality
